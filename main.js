@@ -26,16 +26,8 @@ function setActive(e) {
 	e.classList.add("active");
 }
 
-function musicStart() {
-	var audio = document.getElementById("music");
-	var musicbtn = document.getElementById("musicbtn");
-
-	audio.play();
-	musicbtn.innerText = "Playing";
-}
-
 window.onload = (e) => {
-	var src = "pages/higugou.html";
+	/*var src = "pages/higugou.html";
     if (window.location.href.endsWith("doujin")) {
       src = "pages/doujin.html";
     } else {
@@ -43,5 +35,5 @@ window.onload = (e) => {
     		//window.location.href = "https://conmal.github.io/site";
     	}
     }
-	document.getElementById("pageframe").src = src;
+	document.getElementById("pageframe").src = src;*/
 };
