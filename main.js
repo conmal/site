@@ -40,6 +40,8 @@ window.onload = (e) => {
       src = "pages/doujin.html";
     } else {
     	if (!window.location.href.endsWith("gou")) {
+    		window.history.replaceState(null, null, "/test");
+    		console.log("test");
     		//window.location.href = "https://conmal.github.io/site";
     	}
     }
