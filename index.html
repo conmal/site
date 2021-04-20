@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>;_;</title>
-    <script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type='text/javascript' src='config.js'></script>
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400;600&display=swap');
@@ -134,35 +134,17 @@
 			height: 500px;
 			border: none;
 		}
-
-		#musiclist {
-			background: #161a1d;
-			position: absolute;
-			width: 140px;
-			color: #fff;
-			padding: 10px 20px;
-			margin: 5px;
-		}
 	</style>
+	<script> 
+	$(function(){
+	  $("#header").load("header.html");
+	});
+	</script> 
 </head>
 <body>
-	<div id="overlay"></div>
 	<main>
 		<div id="wrapper">
-			<header>
-				<h1>When The Translators Cry...</h1>
-				<h2>Translations by Conmal Translations Group</h2>
-			</header>
-			<nav id="nav">
-			     <ul>
-					<li>READ: </li>
-					<li><a href="pages/higugou.html" target="contentframe" class="active" onclick="setActive(this)">Higurashi Gou</a></li>
-					<li><a href="pages/doujin.html" target="contentframe" onclick="setActive(this)">Doujins</a></li>
-					<audio id="music">
-						<source src="https://files.catbox.moe/fb7a5n.mp3" type="audio/mpeg">
-					</audio>
-			     </ul>
-			</nav>
+			<div id="header"></div>
 
 			<div id="content">
 				<div id="overlay"></div>
