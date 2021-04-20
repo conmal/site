@@ -35,5 +35,9 @@ function musicStart() {
 }
 
 window.onload = (e) => {
-	document.getElementsByTagName("iframe")[0].src = "pages/higugou.html";
+	var src = "pages/higugou.html";
+    if (window.location.href.endsWith("doujin")) {
+      src = "pages/doujin.html";
+    }
+	document.getElementsByTagName("iframe")[0].src = src;
 };
