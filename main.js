@@ -26,14 +26,21 @@ function setActive(e) {
 	e.classList.add("active");
 }
 
+const dateChapterRelease = new Date('4/16/2021');
+
 window.onload = (e) => {
-	/*var src = "pages/higugou.html";
-    if (window.location.href.endsWith("doujin")) {
-      src = "pages/doujin.html";
-    } else {
-    	if (!window.location.href.endsWith("gou")) {
-    		//window.location.href = "https://conmal.github.io/site";
-    	}
-    }
-	document.getElementById("pageframe").src = src;*/
+	var countdown = document.getElementById('countdown');
+
+	var today = new Date();
+	var dayNum = today.getDay();
+	var daysToFri = 5 - (dayNum < 5? dayNum : dayNum - 7);
+
+	const diffTime = Math.abs(today - dateChapterRelease);
+	const daysSinceChapter = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+	var mod = daysSinceChapter % 7;
+	if (mod % 2) {
+		daysToFri += 7;
+	}
+
+	countdown.innerText = daysToFri + " days";
 };
