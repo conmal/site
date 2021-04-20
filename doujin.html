@@ -11,11 +11,13 @@
 	$(function(){
 	  $("#header").load("header.html", () => {
 	  	$('#content').show();
+	  	$('#overlay').hide();
 	  });
 	});
 	</script>
 </head>
 <body>
+	<div id="overlay"></div>
 	<main>
 		<div id="wrapper">
 			<div id="header"></div>
