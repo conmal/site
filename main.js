@@ -38,6 +38,10 @@ window.onload = (e) => {
 	var src = "pages/higugou.html";
     if (window.location.href.endsWith("doujin")) {
       src = "pages/doujin.html";
+    } else {
+    	if (!window.location.href.endsWith("gou")) {
+    		window.location.href = "https://conmal.github.io/site";
+    	}
     }
 	document.getElementById("pageframe").src = src;
 };
