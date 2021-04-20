@@ -101,6 +101,15 @@ header {
 	color: #fff;
 }
 
+#nav ul #email {
+	display: inline-block;
+	float: right;
+	text-align: right;
+	font-size: 11pt;
+	line-height: 15pt;
+	font-weight: 200;
+}
+
 #content {
 	display: none;
 	background: #fff;
