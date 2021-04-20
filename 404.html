@@ -21,7 +21,7 @@
 	</style>
 	<script type="text/javascript">
 	  window.onload = (e) => {
-	    var iframe = document.getElementsByTagName("iframe")[0];
+	    var iframe = document.getElementById("contentframe");
 	    if (window.location.href.endsWith("gou")) {
 	      //window.location.href = window.location.href.replace("gou", "");
 	      iframe.src = "index.html";
@@ -35,5 +35,5 @@
 	</script>
 </head>
 <body>
-	<iframe name="contentframe" src=""></iframe>
+	<iframe id="contentframe" src=""></iframe>
 </body>

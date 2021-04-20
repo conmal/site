@@ -39,5 +39,5 @@ window.onload = (e) => {
     if (window.location.href.endsWith("doujin")) {
       src = "pages/doujin.html";
     }
-	document.getElementsByTagName("iframe")[0].src = src;
+	document.getElementById("pageframe").src = src;
 };
