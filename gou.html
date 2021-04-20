@@ -23,17 +23,27 @@
 		}
 
 		#chaplist li {
-			padding: 10px 0;
-			border: 1px solid #ccc;
-		}
-		#chaplist li:nth-of-type(odd) {
-			background: #f5f3f4;
+			display: inline-block;
 		}
 
+		/*#chaplist li:nth-of-type(odd) {
+			background: #f5f3f4;
+		}*/
+
 		#chaplist a {
-			padding: 0 25px;
+			display: inline-block;
+			padding: 10px 25px;
 			color: #ba181b;
 			margin: 5px 0;
+			text-decoration: none;
+			border: 1px solid gray;
+			background-color: #fff;
+			transition: background-color ease-in .1s;
+		}
+
+		#chaplist a:hover {
+			background-color: #eee;
+			transition: background-color ease-in .1s;
 		}
 
 		#content a {
@@ -43,10 +53,6 @@
 
 		p {
 			margin: 5px 0;
-		}
-
-		#content {
-			display: none;
 		}
 
 		#cover {
@@ -63,7 +69,30 @@
 
 		#content h2 {
 			margin: 0;
-			padding: 20px 0;
+			padding: 15px 0;
+			text-transform: uppercase;
+			font-weight: 600;
+		}
+
+		table {
+			width: 70%;
+			text-align: left;
+			border-spacing: 0;
+		}
+
+		th:last-of-type, td:last-of-type {
+			text-align: right;
+			width: 150px;
+		}
+
+		td, th {
+			padding: 10px 15px;
+			border: 1px solid #ccc;
+			margin: 0;
+		}
+
+		tr:nth-of-type(odd) {
+			background: #f5f3f4;
 		}
 	</style>
 </head>
@@ -71,19 +100,20 @@
 	<main>
 		<div id="wrapper">
 			<div id="header"></div>
-
 			<div id="content">
-				<h2>Higurashi no Naku Koro ni Gou</h2>
 				<div id="cover">
 					<img src="https://static.wikia.nocookie.net/umineko/images/c/c6/HigurashiGouVol2.jpg">
 				</div>
+				<h2>Higurashi no Naku Koro ni Gou</h2>
+				<a href="https://web-ace.jp/youngaceup/contents/1000147/episode/">Official site</a><br><br>
+				<p>Translated chapters:</p>
 				<ul id="chaplist">
-					<li><a target="_blank" href="https://cubari.moe/read/imgur/gfEOOXL/1/1/">Chapter 10</a><span class="date">15 April</span></li>
-					<li><a target="_blank" href="https://cubari.moe/read/imgur/Rf7T2Id/1/1/">Chapter 9</a><span class="date">10 April</span></li>
-					<li><a target="_blank" href="https://cubari.moe/read/imgur/0g3DQpW/1/1/">Chapter 8</a><span class="date">10 April</span></li>
-					<li><a target="_blank" href="https://cubari.moe/read/imgur/Bsj2jcH/1/1/">Chapter 7</a><span class="date">5 April</span></li>
-					<li><a target="_blank" href="https://cubari.moe/read/imgur/M9Zx73G/1/1/">Chapter 6</a><span class="date">30 March</span></li>
-					<li><a target="_blank" href="https://cubari.moe/read/imgur/38xVNmG/1/1/">Chapter 5</a><span class="date">15 April</span></li>
+					<li><a target="_blank" href="https://cubari.moe/read/imgur/gfEOOXL/1/1/">Chapter 10</a></li>
+					<li><a target="_blank" href="https://cubari.moe/read/imgur/Rf7T2Id/1/1/">Chapter 9</a></li>
+					<li><a target="_blank" href="https://cubari.moe/read/imgur/0g3DQpW/1/1/">Chapter 8</a></li>
+					<li><a target="_blank" href="https://cubari.moe/read/imgur/Bsj2jcH/1/1/">Chapter 7</a></li>
+					<li><a target="_blank" href="https://cubari.moe/read/imgur/M9Zx73G/1/1/">Chapter 6</a></li>
+					<li><a target="_blank" href="https://cubari.moe/read/imgur/38xVNmG/1/1/">Chapter 5</a></li>
 				</ul>
 				<p>Rest of the chapters are translated by different groups and can be found here: 
 				<a target="_blank" href="https://cubari.moe/read/imgur/upktNaL/1/1/">Chapter 4, </a>

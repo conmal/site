@@ -32,8 +32,8 @@ a:hover {
 	position: relative;
 	width: 70%;
 	margin: 0 auto;
-	border-right: 2px dashed gray;
-	border-left: 2px dashed gray;
+	-webkit-box-shadow: 0px 0px 7px 4px rgba(0,0,0,0.3); 
+box-shadow: 0px 0px 7px 4px rgba(0,0,0,0.3);
 	background: gray;
 }
 
@@ -49,7 +49,7 @@ header {
 
 #nav {
 	background: #1e1e1e;
-	border-top: 2px dashed #ba181b;
+	border-top: 1px solid #ba181b;
 }
 
 #nav ul {
@@ -92,9 +92,10 @@ header {
 }
 
 #content {
+	display: none;
 	background: #fff;
-	padding: 0 30px;
-	min-height: 70vh;
+	padding: 30px;
+	min-height: 68vh;
 	width: 100%;
 	box-sizing: border-box;
 }
