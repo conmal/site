@@ -17,7 +17,7 @@
 	<script type="text/javascript">
 	  window.onload = (e) => {
 	  	console.log(window.location.href);
-	    var iframe = document.getElementByTagName("iframe")[0];
+	    var iframe = document.getElementsByTagName("iframe")[0];
 	    if (window.location.href.endsWith("gou")) {
 	      window.location.href = window.location.href.replace("gou", "");
 	      iframe.src = "pages/higugou.html";
