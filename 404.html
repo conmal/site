@@ -7,16 +7,26 @@
 		body {
 			background: #ccc;
 		}
+
+		iframe {
+			width: 500px;
+			height: 500px;
+		}
+
 	</style>
 	<script type="text/javascript">
 	  window.onload = (e) => {
 	  	console.log(window.location.href);
-	    if (window.location.href.indexOf("asd") -! -1) {
-	      alert("asd");
+	    var iframe = document.getElementByTagName("iframe")[0];
+	    if (window.location.href.endsWith("gou")) {
+	      window.location.href = window.location.href.replace("gou", "");
+	      iframe.src = "pages/higugou.html";
+	    } else {
+	      iframe.src = "pages/404.html";
 	    }
 	  };
 	</script>
 </head>
 <body>
-	test
+	<iframe name="contentframe" src=""></iframe>
 </body>
