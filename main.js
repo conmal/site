@@ -1,6 +1,6 @@
-const client_id = config.CLIENT_ID;
+/*const client_id = config.CLIENT_ID;
 
-console.log("client id:", client_id);
+console.log("client id:", client_id);*/
 
 /*(function($){
     var albumID = '38xVNmG';
