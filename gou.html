@@ -7,8 +7,11 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<script> 
 	$(function() {
-	  $("#header").load("header.html");
+	  	$("#header").load("header.html", () => {
+	  		$('#content').show();
+	  	});
 	});
+
 	</script>
 	<style>
 		#chaplist li {

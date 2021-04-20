@@ -8,9 +8,16 @@
 	<script type='text/javascript' src='main.js'></script>
 	<script> 
 	$(function(){
-	  $("#header").load("header.html");
+	  $("#header").load("header.html", () => {
+	  	$('#content').show();
+	  });
 	});
-	</script> 
+	</script>
+	<style>
+		#content {
+			display: none;
+		}
+	</style>
 </head>
 <body>
 	<main>
