@@ -5,22 +5,26 @@
 	<title>;_;</title>
 	<style>
 		body {
-			background: #ccc;
+			margin: 0; padding: 0;
+			overflow: hidden;
+		}
+		body {
+			background: #000;
 		}
 
 		iframe {
-			width: 500px;
-			height: 500px;
+			width: 100vw;
+			height: 100vh;
+			border: none;
 		}
 
 	</style>
 	<script type="text/javascript">
 	  window.onload = (e) => {
-	  	console.log(window.location.href);
 	    var iframe = document.getElementsByTagName("iframe")[0];
 	    if (window.location.href.endsWith("gou")) {
-	      window.location.href = window.location.href.replace("gou", "");
-	      iframe.src = "pages/higugou.html";
+	      //window.location.href = window.location.href.replace("gou", "");
+	      iframe.src = "index.html";
 	    } else {
 	      iframe.src = "pages/404.html";
 	    }

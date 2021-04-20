@@ -1,4 +1,6 @@
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400;600&display=swap');
+
 	body {
 		overflow: hidden;
 	}
@@ -9,10 +11,52 @@
 		height: 100%;
 		width: 100%;
 		cursor: url("../cursor2.png"), auto!important;
+		background-color: #1e1e1e;
+		background: url("../dotsb.png");
+		background-size: 30%;
+		color: #fff;
+	}
+
+	a:hover {
+		cursor: url("../cursor1.png"), auto;
+	}
+
+	img {
+		width: 550px;
+		position: absolute;
+		bottom: 0;
+	}
+
+	#content {
+		padding: 10% 0;
+	}
+
+	.text {
+		width: 500px;
+		background: #1e1e1e;
+		position: relative;
+		margin: 20px auto;
+		padding: 45px 60px;
+		font-family: 'Fira Sans';
+		font-size: 10pt;
+		border-radius: 5px;
+	}
+
+	.text h1 {
+		font-weight: 400;
+	}
+
+	.text a {
+		color: red;
 	}
 </style>
 <body>
 	<main>
-		404 page
+		<div id="content">
+			<img src="../rosa.png">
+			<div class="text">
+				<h1>"God damn it Maria, I told you to stop with those 404 pages. <a href="https://conmal.github.io/site">You need to go back.</a>"</h1>
+			</div>
+		</div>
 	</main>
 </body>
