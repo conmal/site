@@ -1,3 +1,1 @@
-const client_id = config.CLIENT_ID;
-
-console.log("client id:", client_id);
+console.log("client id:", CLIENT_ID);
