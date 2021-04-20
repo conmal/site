@@ -1,0 +1,129 @@
+
+		@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400;600&display=swap');
+
+		@font-face {
+		    font-family: 'Yellowc';
+		    src: url('Yellowc.ttf');
+		}
+
+		body, html, ul {
+			margin: 0; padding: 0;
+		}
+
+		body {
+			overflow: hidden;
+			font-family: 'Fira Sans', sans-serif;
+		}
+
+		main {
+			position: absolute;
+			height: 100vh;
+			width: 100vw;
+			background-image: url("dots.png");
+			background-size: 30%;
+			cursor: url("cursor2.png"), auto;
+		}
+
+		a:hover {
+			cursor: url("cursor1.png"), auto;
+		}
+
+		#wrapper {
+			position: relative;
+			width: 70%;
+			margin: 0 auto;
+			border-right: 2px dashed gray;
+			border-left: 2px dashed gray;
+		}
+
+		header {
+			background: #161a1d;  /* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #631819, #161a1d, #161a1d);
+			background: linear-gradient(to right, #631819, #161a1d, #161a1d);
+
+			height: 20vh;
+			/*background: #161a1d;*/
+			position: relative;
+		}
+
+		#nav {
+			background: #1e1e1e;
+			border-top: 2px dashed #ba181b;
+		}
+
+		#nav ul {
+			list-style:none;
+			padding: 10px 30px;
+		}
+		#nav ul li {
+			padding: 20px 0;
+		  	margin: 0;
+			display:inline-block;
+		  	color: #f5f3f4;
+		}
+		#nav ul li:first-of-type {
+			margin-right: 15px;
+		}
+
+		#nav ul li a {
+		  	text-decoration: none;
+		  	margin-left: 5px;
+			padding: 10px 20px;
+		  	font-weight: 600;
+		  	color: #d3d3d3;
+		  	border-radius: 5px;
+		  	position: relative;
+		}
+
+		#nav ul li:not(:last-of-type) a::after {
+			position: absolute;
+			content: '';
+			width: 2px;
+			height: 70%;
+			right: -6px;
+			top: 7px;
+			background: #4d4d4d;
+		}
+
+		#nav ul li a:hover, #nav ul li a.active {
+			background: #171516;
+			color: #fff;
+		}
+
+		#content {
+			background: #fff;
+			padding: 30px;
+			min-height: 70vh;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		header h1 {
+		    font-family: 'Yellowc';
+		    color: #ba181b;
+		    text-align: right;
+		    position: absolute;
+		    bottom: 45px;
+		    right: 30px;
+		    font-size: 46pt;
+		    padding: 0;
+		    margin: 0;
+		}
+
+		header h2 {
+		    text-align: right;
+		    position: absolute;
+		    bottom: 20px;
+		    right: 30px;
+		    font-size: 14pt;
+		    padding: 0;
+		    margin: 0;
+		    color: #f5f3f4;
+		    font-weight: 200;
+		}
+
+		iframe {
+			width: 100%;
+			height: 500px;
+			border: none;
+		}
