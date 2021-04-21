@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>;_;</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="assets/favicon.ico">
+	<script type="text/javascript" src="data.js"></script>
+	<script>
+
+	function fetchImgurAlbum(albumID) {
+	    var albumAPI = "https://api.imgur.com/3/album/" + albumID + "/images";
+
+		$.ajax({
+			url: albumAPI,
+			headers:{
+				'Authorization':'Client-ID ' + CLIENT_ID
+			},
+			type: 'GET',
+			dataType: 'json',
+			success: function(data) {
+				var images = data.data;
+				var numImages = images.length;
+				console.log(numImages);
+
+				var imagesToAppend = numImages - 5;
+				for (var i = imagesToAppend; i >= 0; i--) {
+					appendImage('https://via.placeholder.com/500');
+				}
+
+				var imgElems = document.getElementsByClassName('readerimg');
+
+				for (var i=0; i < numImages; i++) {
+					var imgElem = imgElems[i];
+					imgElem.src = images[i].link;
+				}
+			},
+			error: function(e) { console.log("ERROR", e); }
+		});
+	};
+
+	var reader;
+
+	function appendImage(url) {
+		reader.append('<img class="readerimg" src="'+url+'" />');
+	}
+
+	window.onload = (e) => {
+		reader = $("#reader");
+
+		// Append placeholder images
+		for (var i=0; i < 5; i++) {
+			appendImage('https://via.placeholder.com/500');
+		}
+
+		var $chapter = $("a#chapter");
+
+		var link = parseChapterLink(window.location.href);
+		console.log(link);
+		console.log(CHAPTER_LINKS[link]);
+		$chapter[0].innerText += " " + CHAPTER_LINKS[link];
+
+		fetchImgurAlbum(link);
+	}
+
+	function parseChapterLink(url) {
+		var qmarkIndex = url.indexOf("?");
+		if (qmarkIndex == -1) {
+			return "";
+		}
+
+		var link = url.slice(qmarkIndex + 1, url.length);
+		return link;
+	}
+	</script>
+	<style>
+		#reader {
+			width: 100%;
+			height: 100vh;
+		}
+
+		#wrapper {
+			margin-top: 100px;
+		}
+
+		#reader img {
+			margin: 7px 0;
+			width: 100%;
+		}
+
+		#nav {
+			width: 100%;
+			z-index: 100;
+			position: fixed;
+			border: none;
+			top: 0;
+		}
+
+		#nav li a {
+			position: relative;
+		}
+
+		#nav li a:hover {
+			background-color: #292121!important;
+		}
+
+		#nav li a.back::after {
+			position: absolute;
+			content: '>';
+			color: #ccc;
+			top: 0;
+			line-height: 40px;
+			margin: 0 20px;
+			z-index: 99;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<nav id="nav">
+		     <ul>
+				<li>READING: </li>
+				<li><a href="gou" class="back">Higurashi Gou</a><a id="chapter" href="gou">Chapter</a></li>
+		     </ul>
+		</nav>
+		<div id="wrapper">
+			<div id="reader"></div>
+		</div>
+	</main>
+</body>
