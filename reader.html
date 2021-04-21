@@ -23,7 +23,6 @@
 			success: function(data) {
 				var images = data.data;
 				var numImages = images.length;
-				console.log(numImages);
 
 				var imagesToAppend = numImages - 5;
 				for (var i = imagesToAppend; i >= 0; i--) {
@@ -35,6 +34,7 @@
 				for (var i=0; i < numImages; i++) {
 					var imgElem = imgElems[i];
 					imgElem.src = images[i].link;
+					console.log(images[i].link);
 				}
 			},
 			error: function(e) { console.log("ERROR", e); }
@@ -51,7 +51,7 @@
 		reader = $("#reader");
 
 		// Append placeholder images
-		for (var i=0; i < 5; i++) {
+		for (var i=0; i < 10; i++) {
 			appendImage('https://via.placeholder.com/500');
 		}
 
@@ -76,13 +76,32 @@
 	}
 	</script>
 	<style>
+		html {
+			height: 100%;
+		}
+		body {
+			min-height: 100%;
+			background: #ccc;
+		}
+
+        .main {
+        	height:	auto;
+            min-height: 100%;
+            background-color: #242423;
+			background-size: 30%;
+			cursor: url("assets/cursor2.png"), auto;
+        }
+
 		#reader {
-			width: 100%;
-			height: 100vh;
+			height: auto;
+			width: 80%;
+			margin: 0 auto;
+			padding-top: 100px;
 		}
 
 		#wrapper {
 			margin-top: 100px;
+			background-color: #161a1d;
 		}
 
 		#reader img {
@@ -96,6 +115,7 @@
 			position: fixed;
 			border: none;
 			top: 0;
+			background-color: #333533;
 		}
 
 		#nav li a {
@@ -103,7 +123,7 @@
 		}
 
 		#nav li a:hover {
-			background-color: #292121!important;
+			background-color: #333533!important;
 		}
 
 		#nav li a.back::after {
@@ -115,18 +135,29 @@
 			margin: 0 20px;
 			z-index: 99;
 		}
+
+		#test {
+			height: 2000px;
+			width: 200px;
+			background: red;
+		}
+
+		#container {
+			width: 80%;
+			height: auto;
+			margin: 0 auto;
+			background: #1e1e1e;
+		}
 	</style>
 </head>
 <body>
-	<main>
+	<div class="main">
 		<nav id="nav">
 		     <ul>
 				<li>READING: </li>
 				<li><a href="gou" class="back">Higurashi Gou</a><a id="chapter" href="gou">Chapter</a></li>
 		     </ul>
 		</nav>
-		<div id="wrapper">
-			<div id="reader"></div>
-		</div>
-	</main>
+		<div id="reader"></div>
+	</div>
 </body>
