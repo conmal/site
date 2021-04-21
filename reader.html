@@ -50,13 +50,15 @@
 
 		url = images.shift();
 
+		var img = new Image();
+		img.className  = "readerimg";
 		img.onload = function() { loadImagesInSequence(images) };
-		if (loaded < 10) {
-			reader.append('<img class="readerimg" src="'+url+'" />');
-		} else {
+		img.src = url;
+		reader.append(img);
+		/*} else {
 			imgElems[loaded].src = url;
 			loaded++;
-		}
+		}*/
 	}
 
 	function appendImage(url) {
@@ -68,8 +70,7 @@
 	window.onload = (e) => {
 		reader = $("#reader");
 
-		// Append placeholder images
-		for (var i=0; i < 10; i++) {
+		/*for (var i=0; i < 10; i++) {
 			appendImage('https://via.placeholder.com/500');
 		}
 		$("img.readerimg").bind('load', function() {
@@ -78,7 +79,7 @@
 			} else {
 				return true;
 			}
-		});
+		});*/
 
 		imgElems = document.getElementsByClassName('readerimg');
 
