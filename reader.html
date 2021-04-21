@@ -36,7 +36,7 @@
 				loadImagesInSequence(links, () => {
 					$('img').on('click', function(e) {
 						e.preventDefault();
-						window.scrollBy(0, this.height + 18);
+						window.scrollTo(0, this.y + this.height + 18);
 					});
 				});
 			},
@@ -81,12 +81,12 @@
 			}
 		});*/
 		
-		/*loadImagesInSequence(['https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500'], () => {
-				$('img').on('click', function(e) {
+		loadImagesInSequence(['https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500'], () => {
+			$('img').on('click', function(e) {
 				e.preventDefault();
-				window.scrollBy(0, this.height + 18);
+				window.scrollTo(0, this.y + this.height + 18);
 			});
-		});*/
+		});
 
 
 		//imgElems = document.getElementsByClassName('readerimg');
@@ -96,7 +96,11 @@
 		var link = parseChapterLink(window.location.href);
 		$chapter[0].innerText += " " + CHAPTER_LINKS[link];
 
-		fetchImgurAlbum(link);
+		/*document.getElementById("image-width").oninput = function() {
+			$("#reader").css("width", this.value + "");
+		}*/
+
+		//fetchImgurAlbum(link);
 	}
 
 	function parseChapterLink(url) {
@@ -136,7 +140,7 @@
 			box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.45);
 		}
 
-		#reader img:hover {
+		#reader img:hover, input:hover {
 			cursor: url("assets/cursor1.png"), auto!important;
 		}
 
@@ -173,11 +177,45 @@
 			background: red;
 		}
 
-		#container {
-			width: 80%;
-			height: auto;
-			margin: 0 auto;
-			background: #1e1e1e;
+		#side {
+			position: fixed;
+			top: 50%;
+			left: 150px;
+  			transform: translate(-50%, -50%);
+			vertical-align: middle;
+			width: 200px;
+			height: 400px;
+			background: #2F2828;
+			color: #f5f3f4;
+			padding: 2em;
+		}
+
+		.slider {
+		  -webkit-appearance: none;
+		  width: 100%;
+		  height: 20px;
+		  border-radius: 0;  
+		  background: #161a1d;
+		  outline: none;
+		  opacity: 0.7;
+		  -webkit-transition: .2s;
+		  transition: opacity .2s;
+		}
+
+		.slider::-webkit-slider-thumb {
+		  -webkit-appearance: none;
+		  appearance: none;
+		  width: 10px;
+		  height: 20px;
+		  border-radius: 0px; 
+		  background: #9B9797;
+		}
+
+		.slider::-moz-range-thumb {
+		  width: 10px;
+		  height: 20px;
+		  border-radius: 0px;
+		  background: #9B9797;
 		}
 	</style>
 </head>
@@ -189,6 +227,11 @@
 				<li><a href="gou" class="back">Higurashi Gou</a><a id="chapter" href="gou">Chapter</a></li>
 		     </ul>
 		</nav>
+		<!--<div id="side">
+			<h2>Chapter</h2>
+			Adjust image width<br/>
+			<input type="range" min="600" max="1000" value="800" id="image-width" class="slider">
+		</div>-->
 		<div id="reader"></div>
 	</div>
 </body>
