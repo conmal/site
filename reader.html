@@ -35,8 +35,9 @@
 
 				loadImagesInSequence(links, () => {
 					$('img').on('click', function(e) {
-					e.preventDefault();
-					window.scrollBy(0, this.height + 18);
+						e.preventDefault();
+						window.scrollBy(0, this.height + 18);
+					});
 				});
 			},
 			error: function(e) { console.log("ERROR", e); }
