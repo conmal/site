@@ -38,7 +38,7 @@ window.onload = (e) => {
 	const diffTime = Math.abs(today - dateChapterRelease);
 	const daysSinceChapter = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 	var mod = daysSinceChapter % 7;
-	if (mod % 2) {
+	if (mod % 2 == 0) {
 		daysToFri += 7;
 	}
 

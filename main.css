@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: 'Yellowc';
-    src: url('Yellowc.ttf');
+    src: url('assets/Yellowc.ttf');
 }
 
 body, html, ul {
@@ -20,9 +20,9 @@ main {
 	min-height: 100vh;
 	width: 100vw;
 	/*background: #d3d3d3;*/
-	background-image: url("dotsb.png");
+	background-image: url("assets/dotsb.png");
 	background-size: 30%;
-	cursor: url("cursor2.png"), auto;
+	cursor: url("assets/cursor2.png"), auto;
 }
 
 #overlay {
@@ -34,7 +34,7 @@ main {
 }
 
 a:hover {
-	cursor: url("cursor1.png"), auto;
+	cursor: url("assets/cursor1.png"), auto;
 }
 
 #wrapper {
