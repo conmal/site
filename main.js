@@ -25,5 +25,5 @@ window.onload = (e) => {
 
 $("a.read").click(function() {
 	var link = this.getAttribute("data");
-	window.location.href = "reader.html?" + link;
+	window.location.href = "reader?" + link;
 }); 
