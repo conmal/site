@@ -81,12 +81,12 @@
 			}
 		});*/
 		
-		loadImagesInSequence(['https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500'], () => {
+		/*loadImagesInSequence(['https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500'], () => {
 			$('img').on('click', function(e) {
 				e.preventDefault();
 				window.scrollTo(0, this.y + this.height + 18);
 			});
-		});
+		});*/
 
 
 		//imgElems = document.getElementsByClassName('readerimg');
@@ -100,7 +100,7 @@
 			$("#reader").css("width", this.value + "");
 		}*/
 
-		//fetchImgurAlbum(link);
+		fetchImgurAlbum(link);
 	}
 
 	function parseChapterLink(url) {
