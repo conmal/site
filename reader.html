@@ -55,6 +55,7 @@
 		img.onload = function() { loadImagesInSequence(images) };
 		img.src = url;
 		reader.append(img);
+		console.log(img);
 		/*} else {
 			imgElems[loaded].src = url;
 			loaded++;
@@ -86,8 +87,6 @@
 		var $chapter = $("a#chapter");
 
 		var link = parseChapterLink(window.location.href);
-		console.log(link);
-		console.log(CHAPTER_LINKS[link]);
 		$chapter[0].innerText += " " + CHAPTER_LINKS[link];
 
 		fetchImgurAlbum(link);
@@ -122,7 +121,6 @@
         }
 
 		#reader {
-			display: none;
 			height: auto;
 			width: 800px;
 			margin: 0 auto;
