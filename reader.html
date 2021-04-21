@@ -25,23 +25,39 @@
 				var numImages = images.length;
 
 				var imagesToAppend = numImages - 5;
-				for (var i = imagesToAppend; i >= 0; i--) {
+				/*for (var i = imagesToAppend; i >= 0; i--) {
 					appendImage('https://via.placeholder.com/500');
-				}
+				}*/
 
-				var imgElems = document.getElementsByClassName('readerimg');
+				var links = data.data.map(function(item) {
+				    return item.link;
+				});
 
-				for (var i=0; i < numImages; i++) {
-					var imgElem = imgElems[i];
-					imgElem.src = images[i].link;
-					console.log(images[i].link);
-				}
+				loadImagesInSequence(links);
 			},
 			error: function(e) { console.log("ERROR", e); }
 		});
 	};
 
+
 	var reader;
+	var loaded = 0;
+	var imgElems;
+	function loadImagesInSequence(images) {
+		if (!images.length) {
+			return;
+		}
+
+		url = images.shift();
+
+		img.onload = function() { loadImagesInSequence(images) };
+		if (loaded < 10) {
+			reader.append('<img class="readerimg" src="'+url+'" />');
+		} else {
+			imgElems[loaded].src = url;
+			loaded++;
+		}
+	}
 
 	function appendImage(url) {
 		reader.append('<img class="readerimg" src="'+url+'" />');
@@ -63,6 +79,8 @@
 				return true;
 			}
 		});
+
+		imgElems = document.getElementsByClassName('readerimg');
 
 		var $chapter = $("a#chapter");
 
