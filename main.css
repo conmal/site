@@ -27,6 +27,7 @@ main {
 	width: 100%;
 	background-image: url("assets/dotsb.png");
 	background-size: 30%;
+	cursor: url("assets/cursor2.png"), auto;
 }
 
 #overlay {
