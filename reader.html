@@ -47,6 +47,8 @@
 		reader.append('<img class="readerimg" src="'+url+'" />');
 	}
 
+	var loaded = false;
+
 	window.onload = (e) => {
 		reader = $("#reader");
 
@@ -54,6 +56,13 @@
 		for (var i=0; i < 10; i++) {
 			appendImage('https://via.placeholder.com/500');
 		}
+		$("img.readerimg").bind('load', function() {
+			if (!loaded) {
+				reader.show();
+			} else {
+				return true;
+			}
+		});
 
 		var $chapter = $("a#chapter");
 
@@ -94,6 +103,7 @@
         }
 
 		#reader {
+			display: none;
 			height: auto;
 			width: 800px;
 			margin: 0 auto;
