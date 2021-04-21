@@ -33,33 +33,31 @@
 				    return item.link;
 				});
 
-				loadImagesInSequence(links);
+				loadImagesInSequence(links, () => {
+					$('img').on('click', function(e) {
+					e.preventDefault();
+					window.scrollBy(0, this.height + 18);
+				});
 			},
 			error: function(e) { console.log("ERROR", e); }
 		});
 	};
 
-
 	var reader;
-	var loaded = 0;
-	var imgElems;
-	function loadImagesInSequence(images) {
+
+	function loadImagesInSequence(images, complete) {
 		if (!images.length) {
+			complete();
 			return;
 		}
 
 		url = images.shift();
 
 		var img = new Image();
-		img.className  = "readerimg";
-		img.onload = function() { loadImagesInSequence(images) };
+		//img.className  = "readerimg";
+		img.onload = function() { loadImagesInSequence(images, complete) };
 		img.src = url;
 		reader.append(img);
-		console.log(img);
-		/*} else {
-			imgElems[loaded].src = url;
-			loaded++;
-		}*/
 	}
 
 	function appendImage(url) {
@@ -81,8 +79,16 @@
 				return true;
 			}
 		});*/
+		
+		/*loadImagesInSequence(['https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500','https://via.placeholder.com/500'], () => {
+				$('img').on('click', function(e) {
+				e.preventDefault();
+				window.scrollBy(0, this.height + 18);
+			});
+		});*/
 
-		imgElems = document.getElementsByClassName('readerimg');
+
+		//imgElems = document.getElementsByClassName('readerimg');
 
 		var $chapter = $("a#chapter");
 
@@ -101,21 +107,12 @@
 		var link = url.slice(qmarkIndex + 1, url.length);
 		return link;
 	}
+
 	</script>
 	<style>
-		html {
-			height: 100%;
-			background-color: #242423;
-		}
-		body {
-			min-height: 100%;
-			background-color: #242423;
-		}
-
         .main {
         	height:	auto;
-            min-height: 100%;
-            background-color: #242423;
+            min-height: 100vh;
 			cursor: url("assets/cursor2.png"), auto;
         }
 
@@ -136,6 +133,10 @@
 			width: 100%;
 			-webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.45); 
 			box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.45);
+		}
+
+		#reader img:hover {
+			cursor: url("assets/cursor1.png"), auto!important;
 		}
 
 		#nav {

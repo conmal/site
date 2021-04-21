@@ -9,16 +9,15 @@
 body, html, ul {
 	margin: 0; padding: 0;
 }
-
+html {
+	height: 100%;
+	background-color: #242423;
+}
 body {
+	min-height: 100%;
+	background-color: #242423;
 	overflow-x: hidden;
 	font-family: 'Fira Sans', sans-serif;
-}
-
-html,
-body {
-	height: 100%;
-	width: 100%;
 }
 
 main {
