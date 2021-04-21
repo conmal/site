@@ -24,6 +24,6 @@ window.onload = (e) => {
 };
 
 $("a.read").click(function() {
-	var link = this.getAttribute("data");
-	window.location.href = "reader?" + link;
+	var data = this.getAttribute("data");
+	window.location.href = "reader?" + data;
 }); 

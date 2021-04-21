@@ -89,7 +89,7 @@ header {
   	position: relative;
 }
 
-#nav ul li:not(:last-of-type):not(:nth-last-of-type(2)) a::after {
+#nav ul.bars li:not(:last-of-type):not(:nth-last-of-type(2)) a::after {
 	position: absolute;
 	content: '';
 	width: 2px;
