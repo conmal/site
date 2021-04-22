@@ -7,25 +7,25 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<link rel="shortcut icon" href="assets/favicon.ico">
-	<script type='text/javascript' src='main.js'></script>
 	<script> 
 	$(function(){
-	  $("#header").load("header.html", () => {
-	  	$('#content').show();
-	  	$('#overlay').hide();
+	  $("#side").load("header.html", () => {
+	  	/*$('#content').show();
+	  	$('#overlay').hide();*/
 	  });
 	});
 	</script>
 </head>
 <body>
-	<div id="overlay"></div>
 	<main>
-		<div id="wrapper">
-			<div id="header"></div>
-
+		<section id="side"></section>
+		<section id="main">
+			<header>
+				<h1>When The <span>Tra</span>nslators Cry...</h1>
+			</header>
 			<div id="content">
 				Nothing here yet.
 			</div>
-		</div>
+		</section>
 	</main>
 </body>

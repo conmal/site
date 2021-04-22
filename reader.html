@@ -29,14 +29,19 @@
 					appendImage('https://via.placeholder.com/500');
 				}*/
 
+				var doublePage = [];
 				var links = data.data.map(function(item) {
+					if (item.width > 1500) {
+						doublePage.push(item.link);
+					}
+
 				    return item.link;
 				});
 
-				loadImagesInSequence(links, () => {
+				loadImagesInSequence(links, doublePage, () => {
 					$('img').on('click', function(e) {
 						e.preventDefault();
-						window.scrollTo(0, this.y + this.height + 18);
+						window.scrollTo(0, this.y + this.height);
 					});
 				});
 			},
@@ -46,7 +51,7 @@
 
 	var reader;
 
-	function loadImagesInSequence(images, complete) {
+	function loadImagesInSequence(images, doublePage, complete) {
 		if (!images.length) {
 			complete();
 			return;
@@ -55,8 +60,13 @@
 		url = images.shift();
 
 		var img = new Image();
+
+		if (doublePage.includes(url)) {
+			img.className = "doublepage";
+		}
+
 		//img.className  = "readerimg";
-		img.onload = function() { loadImagesInSequence(images, complete) };
+		img.onload = function() { loadImagesInSequence(images, doublePage, complete) };
 		img.src = url;
 		reader.append(img);
 	}
@@ -80,13 +90,15 @@
 				return true;
 			}
 		});*/
+
+		doublePage = ['https://via.placeholder.com/500x1600'];
 		
-		/*loadImagesInSequence(['https://via.placeholder.com/500'], () => {
+		loadImagesInSequence(['https://via.placeholder.com/1600'], doublePage, () => {
 			$('img').on('click', function(e) {
 				e.preventDefault();
 				window.scrollTo(0, this.y + this.height + 18);
 			});
-		});*/
+		});
 
 
 		//imgElems = document.getElementsByClassName('readerimg');
@@ -124,9 +136,8 @@
 			document.getElementById("next-button").style.display = "none";
 		}
 
-
 		if (link != undefined) {
-			fetchImgurAlbum(link);
+			//fetchImgurAlbum(link);
 		}
 	}
 
