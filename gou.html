@@ -51,7 +51,7 @@
 			display: block;
     		float: left;
 			width: 200px;
-			height: 500px;
+			min-height: 300px;
 			margin-right: 40px;
 		}
 
@@ -73,6 +73,15 @@
 			text-transform: uppercase;
 			font-weight: 600;
 		}
+
+		#chapters p {
+			margin: 10px 0;
+		}
+
+		#chapters {
+			height: auto;
+			padding: 5px;
+		}
 	</style>
 </head>
 <body>
@@ -80,6 +89,7 @@
 		<section id="side"></section>
 		<section id="main">
 			<header>
+				<button id="navtoggle">&gt;&gt;</button>
 				<h1>When The <span>Tra</span>nslators Cry...</h1>
 			</header>
 			<div id="content">
@@ -91,24 +101,27 @@
 				<a href="https://web-ace.jp/youngaceup/contents/1000147/episode/">web-ace.jp</a><br>
 				<p>Author: <strong>Ryukishi07</strong></p>
 				<p>Status: <strong>Ongoing</strong> (New chapter releases in: <strong id="countdown"></strong>)</p><br>
-				<h3>Chapter list</h3>
-				<hr/>
-				<strong>Tataridamashi-hen</strong>
-				<ul class="chaplist">
-					<li><a class="read" data="gou&10" href="#">Chapter 10</a></li>
-					<li><a class="read" data="gou&9" href="#">Chapter 9</a></li>
-					<li><a class="read" data="gou&8" href="#">Chapter 8</a></li>
-				</ul>
-				<strong>Watadamashi-hen</strong>
-				<ul class="chaplist">
-					<li><a class="read" data="gou&7" href="#">Chapter 7</a></li>
-					<li><a class="read" data="gou&6" href="#">Chapter 6</a></li>
-					<li><a class="read" data="gou&5" href="#">Chapter 5</a></li>
-					<li><a class="read" data="gou&4" href="#">Chapter 4</a></li>
-				</ul>
-				<strong>Onidamashi-hen</strong>
-				<p style="font-size: 14px">Onidamashi chapters are translated by different groups and can be found 
-				<a target="_blank" href="https://mangakakalot.com/manga/bz926015">here.</a> Credit goes to the respective translators for those chapters.</p>
+				
+				<section id="chapters">
+					<h3>Chapter list</h3>
+					<hr/>
+					<p>Tataridamashi-hen</p>
+					<ul class="chaplist">
+						<li><a class="read" data="gou&10" href="#">Chapter 10</a></li>
+						<li><a class="read" data="gou&9" href="#">Chapter 9</a></li>
+						<li><a class="read" data="gou&8" href="#">Chapter 8</a></li>
+					</ul>
+					<p>Watadamashi-hen</p>
+					<ul class="chaplist">
+						<li><a class="read" data="gou&7" href="#">Chapter 7</a></li>
+						<li><a class="read" data="gou&6" href="#">Chapter 6</a></li>
+						<li><a class="read" data="gou&5" href="#">Chapter 5</a></li>
+						<li><a class="read" data="gou&4" href="#">Chapter 4</a></li>
+					</ul>
+					<p>Onidamashi-hen</p>
+					<p style="font-size: 14px;color:#ddd">Onidamashi chapters are translated by different groups and can be found 
+					<a target="_blank" href="https://mangakakalot.com/manga/bz926015">here.</a> Credit goes to the respective translators for those chapters.</p>
+				</section>
 			</div>
 		</section>
 	</main>
@@ -148,6 +161,12 @@
 	$("a.read").click(function() {
 		var data = this.getAttribute("data");
 		window.location.href = "reader?" + data;
+	});
+
+	var side = $("section#side")
+
+	$("button#navtoggle").click(function() {
+		side.toggleClass("shown");
 	});
 	</script>
 </body>
