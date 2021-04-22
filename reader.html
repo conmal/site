@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>;_;</title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="assets/favicon.ico">
 	<script type="text/javascript" src="data.js"></script>
@@ -93,13 +92,12 @@
 
 		doublePage = ['https://via.placeholder.com/500x1600'];
 		
-		loadImagesInSequence(['https://via.placeholder.com/1600'], doublePage, () => {
+		/*loadImagesInSequence(['https://via.placeholder.com/1600'], doublePage, () => {
 			$('img').on('click', function(e) {
 				e.preventDefault();
 				window.scrollTo(0, this.y + this.height + 18);
 			});
-		});
-
+		});*/
 
 		//imgElems = document.getElementsByClassName('readerimg');
 
@@ -137,7 +135,7 @@
 		}
 
 		if (link != undefined) {
-			//fetchImgurAlbum(link);
+			fetchImgurAlbum(link);
 		}
 	}
 
@@ -153,10 +151,24 @@
 
 	</script>
 	<style>
+		body, html, ul {
+			margin: 0; padding: 0;
+		}
+		html {
+			height: 100%;
+			background-color: #242423;
+		}
+		body {
+			min-height: 100%;
+			background-color: #242423;
+			overflow-x: hidden;
+			font-family: 'Fira Sans', sans-serif;
+		}
+
         .main {
         	height:	auto;
             min-height: 100vh;
-			cursor: url("assets/cursor2.png"), auto;
+			cursor: url("assets/cursor2.png") 10 10, auto;
 			padding-bottom: 100px;
         }
 
@@ -179,11 +191,11 @@
 			box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.45);
 		}
 
-		#reader img:hover, input:hover {
-			cursor: url("assets/cursor1.png"), auto!important;
+		#reader img:hover, input:hover, a:hover {
+			cursor: url("assets/cursor1.png") 10 10, auto!important;
 		}
 
-		#nav {
+		nav {
 			width: 100%;
 			z-index: 100;
 			position: fixed;
@@ -192,15 +204,29 @@
 			background-color: #333533;
 		}
 
-		#nav li a {
+		nav ul {
+			list-style: none;
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			padding: 0 30px;
+		}
+
+		nav ul li {
+			padding: 20px 0;
+			margin: 0;
+			display:inline-block;
+			color: #f5f3f4;
+		}
+
+		nav li a:hover {
 			position: relative;
-		}
-
-		#nav li a:hover {
 			background-color: #333533!important;
+			color: #EDECEC;
+			transition: color ease-out .1s;
 		}
 
-		#nav li a.back::after {
+		nav li a.back::after {
 			position: absolute;
 			content: '»';
 			color: #ccc;
@@ -210,7 +236,18 @@
 			z-index: 99;
 		}
 
-		#test {
+		nav ul li a {
+		  	text-decoration: none;
+		  	margin-left: 5px;
+			padding: 10px 20px;
+		  	font-weight: 600;
+		  	color: #d3d3d3;
+		  	border-radius: 5px;
+		  	position: relative;
+			transition: color ease-out .1s;
+		}
+
+		/*#test {
 			height: 2000px;
 			width: 200px;
 			background: red;
@@ -227,7 +264,7 @@
 			background: #2F2828;
 			color: #f5f3f4;
 			padding: 2em;
-		}
+		}*/
 
 		/*.slider {
 		  -webkit-appearance: none;
@@ -282,12 +319,6 @@
 			margin-right: auto;
 		}
 
-		ul {
-			align-items: center;
-			display: flex;
-			justify-content: center;
-		}
-
 		#footer {
 			position: relative;
 			width: 50%;
@@ -328,7 +359,7 @@
 </head>
 <body>
 	<div class="main">
-		<nav id="nav">
+		<nav>
 		     <ul>
 				<div class="left">
 					<li>READING: </li>

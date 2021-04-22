@@ -39,7 +39,7 @@ main {
 }
 
 a:hover {
-	cursor: url("assets/cursor1.png"), auto;
+	cursor: url("assets/cursor1.png") 10 10, auto;
 }
 
 main section {
