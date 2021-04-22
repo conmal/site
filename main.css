@@ -38,7 +38,7 @@ main {
 	z-index: 999;
 }
 
-a:hover {
+a:hover, button:hover {
 	cursor: url("assets/cursor1.png") 10 10, auto;
 }
 
