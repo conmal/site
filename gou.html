@@ -16,10 +16,6 @@
 			display: inline-block;
 		}
 
-		/*.chaplist li:nth-of-type(odd) {
-			background: #f5f3f4;
-		}*/
-
 		#content a {
 			color: #ba181b;
 			margin: 5px 0;
@@ -43,22 +39,27 @@
 			transition: background-color ease-in .1s;
 		}
 
-		/*p, h3 {
+		#main h3, #main p {
 			margin: 5px 0;
-		}*/
+		}
+
+		#main hr {
+			color: #766F6F;
+		}
 
 		#cover {
 			display: block;
     		float: left;
 			width: 200px;
 			height: 500px;
-			margin-right: 20px;
+			margin-right: 40px;
 		}
 
 		#cover img {
 			width: inherit;
 			display: block;
 			margin-bottom: 15px;
+			box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 24px;
 		}
 
 		.chaplist .date {
@@ -72,27 +73,6 @@
 			text-transform: uppercase;
 			font-weight: 600;
 		}
-
-		/*table {
-			width: 70%;
-			text-align: left;
-			border-spacing: 0;
-		}
-
-		th:last-of-type, td:last-of-type {
-			text-align: right;
-			width: 150px;
-		}
-
-		td, th {
-			padding: 10px 15px;
-			border: 1px solid #ccc;
-			margin: 0;
-		}
-
-		tr:nth-of-type(odd) {
-			background: #f5f3f4;
-		}*/
 	</style>
 </head>
 <body>
@@ -149,7 +129,7 @@
 	const dateChapterRelease = new Date('4/16/2021');
 
 	window.onload = (e) => {
-		/*var countdown = document.getElementById('countdown');
+		var countdown = document.getElementById('countdown');
 
 		var today = new Date();
 		var dayNum = today.getDay();
@@ -162,12 +142,12 @@
 			daysToFri += 7;
 		}
 
-		countdown.innerText = daysToFri + " days";*/
+		countdown.innerText = daysToFri + " days";
 	};
 
-	/*$("a.read").click(function() {
+	$("a.read").click(function() {
 		var data = this.getAttribute("data");
 		window.location.href = "reader?" + data;
-	}); */
+	});
 	</script>
 </body>
