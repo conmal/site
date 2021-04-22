@@ -91,10 +91,10 @@
 			}
 		});*/
 
-		/*doublePage = ['https://via.placeholder.com/1600'];
+		doublePage = ['https://via.placeholder.com/1600'];
 		
 		loadImagesInSequence(['https://via.placeholder.com/1600', 'https://via.placeholder.com/500', 'https://via.placeholder.com/500'], doublePage, () => {}
-		);*/
+		);
 
 		//imgElems = document.getElementsByClassName('readerimg');
 
@@ -132,7 +132,7 @@
 		}
 
 		if (link != undefined) {
-			fetchImgurAlbum(link);
+			//fetchImgurAlbum(link);
 		}
 	}
 
@@ -298,8 +298,14 @@
 		}*/
 
 		ul .chapter-control {
+			position: absolute;
 		    text-align: center;
-		    margin-right: 38vw;
+		    width: 400px;
+			position: absolute; 
+			left: 0; 
+			right: 40px; 
+			margin-left: auto; 
+			margin-right: auto;
 		}
 
 		ul .chapter-control li a {
@@ -308,7 +314,7 @@
 
 		@media only screen and (max-width: 1100px) {
 			ul .chapter-control {
-				text-align: center;
+				position: relative;
 				margin-right: 0;
 			}
 
