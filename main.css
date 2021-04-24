@@ -58,6 +58,7 @@ main section {
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	font-weight: 500;
 }
 
 #side footer {
@@ -69,7 +70,7 @@ main section {
 	height: auto;
 }
 
-#side nav ul {
+#side nav ul a {
 	font-weight: 700;
 }
 
