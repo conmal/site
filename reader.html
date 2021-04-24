@@ -160,6 +160,7 @@
 
 	</script>
 	<style>
+
 		body, html, ul {
 			margin: 0; padding: 0;
 		}
@@ -171,7 +172,7 @@
 			min-height: 100%;
 			background-color: #242423;
 			overflow-x: hidden;
-			font-family: 'Fira Sans', sans-serif;
+			font-family: 'Montserrat', sans-serif;
 		}
 
         .main {
@@ -248,10 +249,10 @@
 		nav li a.back::after {
 			position: absolute;
 			content: '»';
-			color: #ccc;
+			color: #bbb;
 			top: 0;
 			line-height: 39px;
-			margin: 0 20px;
+			margin: 0 19px;
 			z-index: 99;
 		}
 
@@ -332,7 +333,7 @@
 		}
 
 		ul .chapter-control li a {
-			font-weight: 200!important;
+			font-weight: 300!important;
 		}
 
 		@media only screen and (max-width: 1100px) {
@@ -403,7 +404,7 @@
 			text-align: center;
 			font-size: 20px;
 			text-transform: uppercase;
-			font-weight: 600;
+			font-weight: 500;
 			color: #ccc5b9;
 			border-radius: 5px;
 			text-decoration: none;
@@ -466,7 +467,7 @@
 			content: attr(data-page);
 			bottom: 40px;
 			right: 0;
-			font-weight: 600;
+			font-weight: 500;
 			width: 40px;
 			font-size: 14pt;
 			z-index: 99;
@@ -498,6 +499,16 @@
 		.imgcontainer:hover::after {
 			opacity: 0;
 			-webkit-transition: opacity ease-in-out .2s;
+		}
+
+		::selection {
+		  background: crimson;
+		  color: #fff;
+		}
+
+		::-moz-selection {
+		  background: crimson;
+		  color: #fff;
 		}
 	</style>
 </head>
