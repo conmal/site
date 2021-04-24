@@ -18,8 +18,8 @@
 			width: 100%;
 			cursor: url("assets/cursor2.png"), auto!important;
 			background-color: #1e1e1e;
-			/*background: url("assets/dotsb.png");
-			background-size: 30%;*/
+			background: url("assets/dotsb.png");
+			background-size: 30%;
 			color: #fff;
 		}
 
@@ -34,6 +34,7 @@
 		}
 
 		#content {
+			display: none;
 			padding: 10% 0;
 		}
 
@@ -61,10 +62,8 @@
 			position: absolute;
 			right: 0;
 			bottom: 0;
-			width: 400px;
+			width: auto;
 			height: 400px;
-			background: url("assets/rika.png") no-repeat center center;
-			background-size: contain;
 		}
 	</style>
 </head>
@@ -76,7 +75,12 @@
 				<h1>"It's no good, it's no damn good at all... I refuse to believe that 404 pages exist...!
 				<a href="https://conmal.github.io/site">Nooooooooooo!!</a>"</h1>
 			</div>
-			<div id="drawing"></div>
+			<img src="assets/rika.png" id="drawing">
 		</div>
 	</main>
+	<script>
+		document.getElementById('drawing').onload = function() {
+			document.getElementById("content").style.display = "block";
+		}
+	</script>
 </body>
