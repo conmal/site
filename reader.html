@@ -50,7 +50,7 @@
 
 	function loadImagesInSequence() {
 		if (!images.length) {
-			if (loaded == (imagesToLoadNum - 1)) {
+			if (scrollInit == false) {
 				$("#next-button").css("display", "block");
 			}
 			return;
@@ -88,9 +88,9 @@
 		div.setAttribute("data-page", (pageNum + 1).toString());
 		div.appendChild(img);
 		reader.append(div);
-		console.log("added image ", loaded);
 
 		img.onload = function() {
+			div.style.display = "inline-block";
 			loaded++;
 			loadImagesInSequence();
 		};
@@ -101,9 +101,9 @@
 	window.onload = (e) => {
 		reader = $("#reader");
 
-		/*images = [{link: 'https://via.placeholder.com/1600', isDouble:true}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1700',isDouble:true}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}];*/
+		/*images = [{link: 'https://via.placeholder.com/1600', isDouble:true}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1700',isDouble:true}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}];
 	
-		loadImagesInSequence();
+		loadImagesInSequence();*/
 
 		var $chapter = $("a#chapter");
 
@@ -450,7 +450,7 @@
 		}*/
 
 		.imgcontainer {
-			display: inline-block;
+			display: none;
 			position: relative;
 			margin: 0 auto;
 		}
