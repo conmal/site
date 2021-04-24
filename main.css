@@ -58,6 +58,7 @@ main section {
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	font-weight: 700;
 }
 
 #side footer {
