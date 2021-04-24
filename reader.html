@@ -50,7 +50,9 @@
 
 	function loadImagesInSequence() {
 		if (!images.length) {
-			$("#next-button").css("display", "block");
+			if (loaded == (imagesToLoadNum - 1)) {
+				$("#next-button").css("display", "block");
+			}
 			return;
 		}
 
