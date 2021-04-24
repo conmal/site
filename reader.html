@@ -100,18 +100,19 @@
 	var loaded = false;
 
 	window.onload = (e) => {
-		reader = $("#reader");
-
-		/*images = [{link: 'https://via.placeholder.com/1600', isDouble:true}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1700',isDouble:true}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}];
-	
-		loadImagesInSequence();*/
-
-		var $chapter = $("a#chapter");
-
 		var chapterData = parseChapterData(window.location.href).split("&");
 		var seriesName = chapterData[0];
 		var chapterNumber = chapterData[1];
-		$chapter[0].innerText += " " + chapterNumber;
+
+		if (SERIES[seriesName] === undefined || SERIES[seriesName][chapterNumber] === undefined) {
+			document.getElementById("notfound").style.display = "block";
+
+			return;
+		}
+
+		reader = $("#reader");
+		var chapter = $("a#chapter");
+		chapter[0].innerText += " Chapter " + chapterNumber;
 
 		var link = SERIES[seriesName][chapterNumber];
 
@@ -143,9 +144,19 @@
 			next.classList.add("disabled");
 		}
 
-		if (link != undefined) {
-			fetchImgurAlbum(link);
+		document.getElementById("title").innerText = SERIES[seriesName]["name"];
+
+		var tabs = document.querySelectorAll('.main > nav > ul li > a');
+		for (var i = 0; i<tabs.length; i++) {
+		    tabs[i].style.display = "inline-block";
 		}
+		document.querySelector(".main > nav > ul li > p").style.display = "inline-block";
+
+		images = [{link: 'https://via.placeholder.com/1600', isDouble:true}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1700',isDouble:true}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}];
+	
+		loadImagesInSequence();
+
+		//fetchImgurAlbum(link);
 	}
 
 	function parseChapterData(url) {
@@ -160,7 +171,6 @@
 
 	</script>
 	<style>
-
 		body, html, ul {
 			margin: 0; padding: 0;
 		}
@@ -179,7 +189,8 @@
         	height:	auto;
             min-height: 100vh;
 			cursor: url("assets/cursor2.png") 10 10, auto;
-			padding-bottom: 100px;
+			padding: 100px 0;
+			box-sizing: border-box;
         }
 
 		#reader {
@@ -191,7 +202,6 @@
 			display: flex;
 			align-items: center;
 			flex-direction: column;
-			font-weight: 500;
 		}
 
 		#wrapper {
@@ -233,7 +243,7 @@
 		}
 
 		nav ul li {
-			padding: 20px 0;
+			padding: 30px 0;
 			margin: 0;
 			display:inline-block;
 			color: #f5f3f4;
@@ -252,19 +262,25 @@
 			content: '»';
 			color: #bbb;
 			top: 0;
-			line-height: 39px;
+			line-height: 19px;
 			margin: 0 19px;
 			z-index: 99;
 		}
 
 		nav ul li a {
+			display: none;
 		  	text-decoration: none;
 		  	margin-left: 5px;
-			padding: 10px 20px;
+			padding: 0 20px;
 		  	color: #d3d3d3;
 		  	border-radius: 5px;
 		  	position: relative;
 			transition: color ease-out .1s;
+		}
+
+		nav ul li p {
+			display: none;
+			margin: 0;
 		}
 
 		nav ul li.right {
@@ -468,7 +484,7 @@
 			content: attr(data-page);
 			bottom: 40px;
 			right: 0;
-			font-weight: 500;
+			font-weight: 700;
 			width: 40px;
 			font-size: 14pt;
 			z-index: 99;
@@ -511,6 +527,28 @@
 		  background: crimson;
 		  color: #fff;
 		}
+
+		#notfound {
+			display: none;
+			position: relative;
+			width: 600px;
+			margin: 50px auto;
+			background: #3B3739;
+			color: #E2E0E2;
+			padding: 20px 60px;
+			text-align: center;
+			border-radius: 5px;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		}
+
+		#notfound h3 {
+			font-weight: 500;
+		}
+
+		#notfound a {
+			color: crimson;
+			font-weight: 700;
+		}
 	</style>
 </head>
 <body>
@@ -518,8 +556,8 @@
 		<nav>
 		     <ul>
 				<div class="left">
-					<li>READING: </li>
-					<li><a href="gou" class="back">Higurashi Gou</a><a id="chapter" href="gou">Chapter</a></li>
+					<li><p>READING:</p></li>
+					<li><a id="title" href="gou" class="back"></a><a id="chapter" href="gou"></a></li>
 					<li id="pagecount" class="right"></li>
 				</div>
 				<div class="chapter-control">
@@ -528,6 +566,10 @@
 				</div>
 		     </ul>
 		</nav>
+		<div id="notfound">
+			<h3>The chapter you're looking for was not found. Check to see if you have mistyped the URL, or <a href="gou">go back</a>.</h3>
+			<h1>;_;</h1>
+		</div>
 		<!--<div id="side">
 			<h2>Chapter</h2>
 			Adjust image width<br/>
