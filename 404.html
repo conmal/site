@@ -18,8 +18,8 @@
 			width: 100%;
 			cursor: url("assets/cursor2.png"), auto!important;
 			background-color: #1e1e1e;
-			background: url("assets/dotsb.png");
-			background-size: 30%;
+			/*background: url("assets/dotsb.png");
+			background-size: 30%;*/
 			color: #fff;
 		}
 
@@ -39,11 +39,11 @@
 
 		.text {
 			width: 500px;
-			background: #1e1e1e;
+			background: #252325;
 			position: relative;
 			margin: 20px auto;
-			padding: 45px 60px;
-			font-family: 'Fira Sans';
+			padding: 60px 80px;
+			font-family: monospace;
 			font-size: 10pt;
 			border-radius: 5px;
 		}
@@ -54,16 +54,29 @@
 
 		.text a {
 			color: red;
+			font-weight: bold;
+		}
+
+		#drawing {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 400px;
+			height: 400px;
+			background: url("assets/rika.png") no-repeat center center;
+			background-size: contain;
 		}
 	</style>
 </head>
 <body>
 	<main>
 		<div id="content">
-			<img src="assets/rosa.png">
+			<!--<img src="assets/rosa.png">-->
 			<div class="text">
-				<h1>"God damn it Maria, I told you to stop with those 404 pages. <a href="https://conmal.github.io/site">You need to go back.</a>"</h1>
+				<h1>"It's no good, it's no damn good at all... I refuse to believe that 404 pages exist...!
+				<a href="https://conmal.github.io/site">Nooooooooooo!!</a>"</h1>
 			</div>
+			<div id="drawing"></div>
 		</div>
 	</main>
 </body>
