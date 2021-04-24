@@ -58,7 +58,6 @@ main section {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	font-weight: 700;
 }
 
 #side footer {
@@ -68,6 +67,10 @@ main section {
 	font-size: 11pt;
 	min-height: 10%;
 	height: auto;
+}
+
+#side nav ul {
+	font-weight: 700;
 }
 
 #main {
