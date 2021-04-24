@@ -47,10 +47,11 @@
 	var loaded = 0;
 	var scrollInit = false;
 	const imagesToLoadNum = 4;
+	var nextDisabled = false;
 
 	function loadImagesInSequence() {
 		if (!images.length) {
-			if (scrollInit == false) {
+			if (!nextDisabled && !scrollInit) {
 				$("#next-button").css("display", "block");
 			}
 			return;
@@ -60,7 +61,7 @@
 			if (!scrollInit) {
 				$(window).scroll(function() {
 					var scrollValue = $(window).scrollTop() + $(window).height();
-					var bottom = $(document).height() - 100;
+					var bottom = $(document).height() - 200;
 
 					if (scrollValue > bottom) {
 						loaded = 0;
@@ -81,6 +82,7 @@
 		if (imageObj.isDouble) {
 			img.className = "doublepage";
 		}
+
 		img.src = imageObj.link;
 		var div = document.createElement('div');
 		div.className = "imgcontainer";
@@ -90,7 +92,6 @@
 		reader.append(div);
 
 		img.onload = function() {
-			div.style.display = "inline-block";
 			loaded++;
 			loadImagesInSequence();
 		};
@@ -129,13 +130,17 @@
 		}
 
 		var next = document.getElementById("next");
+		var nextButton = document.getElementById("next-button");
 		if (SERIES[seriesName][(index+1).toString()] != undefined) {
-			next.onclick = function() {
+			var click = function() {
 				window.location.href = "reader?" + seriesName + "&" + (index+1);
 			}
+			next.onclick = click;
+			nextButton.onclick = click;
 		} else {
+			nextButton.style.display = "none";
+			nextDisabled = true;
 			next.classList.add("disabled");
-			document.getElementById("next-button").style.display = "none";
 		}
 
 		if (link != undefined) {
@@ -150,7 +155,7 @@
 		}
 
 		var data = url.slice(qmarkIndex + 1, url.length);
-		return data;
+		return data.replace("#", "");
 	}
 
 	</script>
@@ -450,7 +455,7 @@
 		}*/
 
 		.imgcontainer {
-			display: none;
+			min-height: 500px;
 			position: relative;
 			margin: 0 auto;
 		}
