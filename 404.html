@@ -33,20 +33,21 @@
 		}
 
 		#content {
+			position: relative;
 			display: none;
-			padding: 10% 0;
 		}
 
 		.text {
 			width: 500px;
-			background: #3B3739;
+			background: #353133;
 			position: relative;
-			margin: 20px auto;
+			color: #EDEAEC;
+			margin: 5% auto 0 auto;
 			padding: 60px 80px;
-			font-family: monospace;
-			font-size: 10pt;
+			font-family: 'Lucida Console', monospace;
+			font-size: 9pt;
 			border-radius: 5px;
-			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 		}
 
 		.text h1 {
@@ -59,11 +60,19 @@
 		}
 
 		#drawing {
-			position: absolute;
-			right: 0;
-			bottom: 0;
+			display: block;
+			position: relative;
+			float: right;
 			width: auto;
-			height: 400px;
+			height: 350px;
+			margin-top: 40px;
+		}
+
+		@media only screen and (max-width: 1000px) {
+			#drawing {
+				float: none;
+				margin: 100px auto 0 auto;
+			}
 		}
 	</style>
 </head>
