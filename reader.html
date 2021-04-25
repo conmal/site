@@ -105,7 +105,8 @@
 		var chapterNumber = chapterData[1];
 
 		if (SERIES[seriesName] === undefined || SERIES[seriesName][chapterNumber] === undefined) {
-			document.getElementById("notfound").style.display = "block";
+			window.location.href = "404";
+			//document.getElementById("notfound").style.display = "block";
 
 			return;
 		}
@@ -152,11 +153,15 @@
 		}
 		document.querySelector(".main > nav > ul li > p").style.display = "inline-block";
 
+		//loadPlaceholderImages()
+
+		fetchImgurAlbum(link);
+	}
+
+	function loadPlaceholderImages() {
 		images = [{link: 'https://via.placeholder.com/1600', isDouble:true}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1700',isDouble:true}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}, {link:'https://via.placeholder.com/1400',isDouble:false}];
 	
 		loadImagesInSequence();
-
-		//fetchImgurAlbum(link);
 	}
 
 	function parseChapterData(url) {
