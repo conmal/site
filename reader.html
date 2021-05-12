@@ -17,10 +17,9 @@
 			return;
 		}
 
-		var link = SERIES[seriesName][chapterNumber];
-		var url = "https://cubari.moe/read/imgur/" + link;
+		var url = "https://cubari.moe/read/gist/Jsv4v/"+chapterNumber+"/1/";
 		window.location.href = url;
-		document.getElementById("redirect").href = link;
+		document.getElementById("redirect").href = url;
 	}
 
 	function parseChapterData(url) {

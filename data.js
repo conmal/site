@@ -11,5 +11,8 @@ gou["5"] = "38xVNmG";
 gou["4"] = "Bm8A1WZ";
 gou["name"] = "Higurashi Gou";
 SERIES["gou"] = gou;
+var katari = {};
+katari["7"] = "2hG7CyW";
+SERIES["katari"] = katari;
 
 const CLIENT_ID = "c45bf8e97fb563f";
