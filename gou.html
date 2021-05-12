@@ -175,15 +175,7 @@
 
 	$("button.read").click(function() {
 		var chapterData = this.getAttribute("data").split("&");
-		var seriesName = chapterData[0];
 		var chapterNumber = chapterData[1];
-
-		if (SERIES[seriesName] === undefined || SERIES[seriesName][chapterNumber] === undefined) {
-			window.location.href = "404";
-			//document.getElementById("notfound").style.display = "block";
-
-			return;
-		}
 
 		const url = "https://cubari.moe/read/gist/Jsv4v/"+chapterNumber+"/1/";
 		window.location.href = url;
