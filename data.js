@@ -1,7 +1,7 @@
 var SERIES = {};
 
 var gou = {};
-gou["11-1"] = "HSKRSDv";
+gou["11"] = "HSKRSDv";
 gou["10"] = "gfEOOXL";
 gou["9"] = "Rf7T2Id";
 gou["8"] = "0g3DQpW";
