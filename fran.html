@@ -45,6 +45,10 @@
 						border-color ease-in .1s;
 		}
 
+		.read a {
+			color: #D6D1D1!important;
+		}
+
 		#main h3, #main p {
 			margin: 5px 0;
 		}
@@ -101,22 +105,18 @@
 			</header>
 			<div id="content">
 				<div id="cover">
-					<img src="https://cv.bkmkn.kodansha.co.jp/9784065116173/9784065116173_w.jpg" title="Vol.1 cover">
+					<img src="https://uploads.mangadex.org/covers/4ad8613b-1987-4d6f-ac0e-3d28a9b2b6f2/8960478d-7531-4aab-8e58-7433893c3a23.jpg" title="Vol.3 cover">
 				</div>
-				<h2>Bakemonogatari</h2>
-				<h3>化物語</h3>
-				<p>Author: <strong>nisioisin</strong></p>
+				<h2>Franken Fran Frantic</h2>
+				<h3>フランケン・ふらん Frantic</h3>
+				<p>Author: <strong>Kigitsu Katsuhisa</strong></p>
         
 				<section id="chapters">
 					<h3>Chapter list</h3>
 					<hr/>
-					<p>Volume 13</p>
+					<p>Worked on Ch. 31 onwards</p>
 					<ul class="chaplist">
-						<li><button class="read" data="mono&108">108</button></li>
-						<li><button class="read" data="mono&107">107</button></li>
-						<li><button class="read" data="mono&106">106</button></li>
-						<li><button class="read" data="mono&105">105</button></li>
-						<li><button class="read" data="mono&104">104</button></li>
+						<li><button class="read"><a target="_blank" href="https://mangadex.org/title/4ad8613b-1987-4d6f-ac0e-3d28a9b2b6f2/franken-fran-frantic">Read on Mangadex</a></button></li>
 					</ul>
 				</section>
 			</div>
@@ -136,13 +136,13 @@
 		e.classList.add("active");
 	}
 
-	$("button.read").click(function() {
-		var chapterData = this.getAttribute("data").split("&");
-		var chapterNumber = chapterData[1];
+	// $("button.read").click(function() {
+	// 	var chapterData = this.getAttribute("data").split("&");
+	// 	var chapterNumber = chapterData[1];
 
-		const url = "https://cubari.moe/read/gist/Jz7bP/"+chapterNumber+"/1/";
-		window.location.href = url;
-	});
+	// 	const url = "https://cubari.moe/read/gist/Jz7bP/"+chapterNumber+"/1/";
+	// 	window.location.href = url;
+	// });
 
 	var side = $("section#side")
 

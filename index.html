@@ -3,11 +3,151 @@
 <head>
 	<meta charset="UTF-8">
 	<title>;_;</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="shortcut icon" href="assets/favicon.ico">
+	<style>
+		.chaplist {
+			list-style: none;
+		}
+
+		.chaplist li {
+			display: inline-block;
+		}
+
+		#content button, #content a {
+			color: crimson;
+			margin: 5px 0;
+		}
+
+		.chaplist button {
+			display: inline-block;
+			padding: 10px 15px;
+			margin: 5px 0;
+			text-decoration: none;
+			border: 1px solid gray;
+			background-color: #282525;
+			text-align: center;
+			min-width: 120px;
+			color: #D6D1D1!important;
+			-webkit-transition: background-color ease-in .1s,
+						border-color ease-in .1s;
+			transition: background-color ease-in .1s,
+						border-color ease-in .1s;
+		}
+
+		.chaplist button:hover {
+			background-color: #1F1F1F;
+			border-color: #ddd;
+			-webkit-transition: background-color ease-in .1s,
+						border-color ease-in .1s;
+			transition: background-color ease-in .1s,
+						border-color ease-in .1s;
+		}
+
+		.read a {
+			color: #D6D1D1!important;
+		}
+
+		#main h3, #main p {
+			margin: 5px 0;
+		}
+
+		#main hr {
+			color: #766F6F;
+		}
+
+		#cover {
+			display: block;
+    		float: left;
+			width: 200px;
+			min-height: 300px;
+			margin-right: 40px;
+		}
+
+		#cover img {
+			width: inherit;
+			display: block;
+			margin-bottom: 15px;
+			box-shadow: rgba(0, 0, 0, 0.6) 0px 8px 24px;
+		}
+
+		.chaplist .date {
+			float: right;
+			margin: 0 20px;
+		}
+
+		#content h2 {
+			margin: 0;
+			padding-top: 15px;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-family: 'Fira Sans', sans-serif;
+		}
+
+		#chapters p {
+			margin: 10px 0;
+		}
+
+		#chapters {
+			height: auto;
+			padding: 5px;
+		}
+	</style>
 </head>
-<script>
-	window.location.href += "mono"
-</script>
 <body>
-	<a href="https://conmal.github.io/site/mono">Click here if your browser doesn't redirect you.</a>
+	<main>
+		<section id="side"></section>
+		<section id="main">
+			<header>
+				<button id="navtoggle">&gt;&gt;</button>
+				<h1>When The <span>Tra</span>nslators Cry...</h1>
+			</header>
+			<div id="content">
+				<div id="cover">
+					<img src="https://cv.bkmkn.kodansha.co.jp/9784065116173/9784065116173_w.jpg" title="Vol.1 cover">
+				</div>
+				<h2>Bakemonogatari</h2>
+				<h3>化物語</h3>
+				<p>Author: <strong>nisioisin</strong></p>
+        
+				<section id="chapters">
+					<h3>Chapter list</h3>
+					<hr/>
+					<p>Worked on Vol.12 - Vol.13</p>
+					<ul class="chaplist">
+						<li><button class="read"><a target="_blank" href="https://mangadex.org/title/4265c437-7d57-4d31-9b1d-0e574a07b7b7/bakemonogatari">Read on Mangadex</a></button></li>
+					</ul>
+				</section>
+			</div>
+		</section>
+	</main>
+	<script> 
+	$(function() {
+	  	$("#side").load("header.html"/*, () => {
+	  		$('#content').show();
+	  		$('#overlay').hide();
+	  	}*/);
+	});
+
+	function setActive(e) {
+		var currActive = document.getElementsByClassName("active")[0];
+		currActive.classList.remove("active");
+		e.classList.add("active");
+	}
+
+	// $("button.read").click(function() {
+	// 	var chapterData = this.getAttribute("data").split("&");
+	// 	var chapterNumber = chapterData[1];
+
+	// 	const url = "https://cubari.moe/read/gist/Jz7bP/"+chapterNumber+"/1/";
+	// 	window.location.href = url;
+	// });
+
+	var side = $("section#side")
+
+	$("button#navtoggle").click(function() {
+		side.toggleClass("shown");
+	});
+	</script>
 </body>
-</html>
